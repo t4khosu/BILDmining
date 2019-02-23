@@ -16,7 +16,7 @@ Aufbau der Tabellen innerhalb der DB:
 ### Code ausführen
 
 * `python mine.py` : Suche neue Artikel und speichere sie in der DB
-* `python mine.py -n` : Drop und Create der Tabellen, bevor neue Artikel gespeichert werden
+* `python mine.py -n` : Drop und Create der Tabellen, bevor neue Artikel gespeichert werden. Dieser Befehl muss beim ersten Aufsführen gewählt werden.
 * `python mine.py -l` : Speichere nur Artikel mit einer URL, die noch nicht in der DB existiert. Das ist schneller, jedoch werden modifizierte Artikel nicht mehr berücksichtigt.
 
 ### Ergebnis
