@@ -1,26 +1,26 @@
-dropTablesSQL = """
-    DROP TABLE IF EXISTS articles_authors
-    DROP TABLE IF EXISTS articles
-    DROP TABLE IF EXISTS publishers
-    DROP TABLE IF EXISTS authors
-"""
+dropTablesSQL = [
+    "DROP TABLE IF EXISTS articles_authors",
+    "DROP TABLE IF EXISTS articles",
+    "DROP TABLE IF EXISTS publishers",
+    "DROP TABLE IF EXISTS authors"
+]
 
-createTablesSQL = """
-    CREATE TABLE authors (
+createTablesSQL = [
+    """CREATE TABLE authors (
         id INT NOT NULL AUTO_INCREMENT,
         type VARCHAR(255),
         name VARCHAR(255),
         PRIMARY KEY (id)
-    )
+    )""",
 
-    CREATE TABLE publishers (
+    """CREATE TABLE publishers (
         id INT NOT NULL AUTO_INCREMENT,
         type VARCHAR(255),
         name VARCHAR(255),    
         PRIMARY KEY (id)
-    )
+    )""",
 
-    CREATE TABLE articles (
+    """CREATE TABLE articles (
         id INT NOT NULL AUTO_INCREMENT,
         document_id INT NOT NULL,
         article_type VARCHAR(255),
@@ -38,20 +38,23 @@ createTablesSQL = """
         stored_at TIMESTAMP NOT NULL,
         PRIMARY KEY (id),
         FOREIGN KEY (publisher_id) REFERENCES publishers(id)
-    )
+    )""",
 
-    CREATE TABLE articles_authors (
+    """CREATE TABLE articles_authors (
         id INT NOT NULL AUTO_INCREMENT,
         author_id INT NOT NULL,
         article_id INT NOT NULL,
         PRIMARY KEY (id),
         FOREIGN KEY (author_id) REFERENCES authors(id),
         FOREIGN KEY (article_id) REFERENCES articles(id)
-    )
-"""
+    )"""
+]
 
 def initTables(DB):
     """ Remove old tables (if exists) and create new ones """
-    DB.runSqlFromString(dropTablesSQL, ())
-    DB.runSqlFromString(createTablesSQL, ())
+
+    for sql in dropTablesSQL:
+        DB.runSqlFromString(sql)
+    for sql in createTablesSQL:
+        DB.runSqlFromString(sql)
     print("New Tables initialized...")

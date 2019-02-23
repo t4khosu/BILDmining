@@ -45,6 +45,7 @@ class ArticleCollector(object):
                 if response.status_code == 200:
                     if self.storeArticle(type, url, response.text):
                         stored += 1
+                        time.sleep(2)
                 else:
                     raise("Error Code {} occured.".format(response.status_code))
             except requests.exceptions.ConnectionError as e:
