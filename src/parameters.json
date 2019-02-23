@@ -1,0 +1,29 @@
+{
+    "apiKey" : "bddb6bb7d61a43208d9d8e3db3aeffc2",
+    "src" : "bild",
+    "url" : "https://newsapi.org/v2/everything",
+    "mysql" : {
+        "user" : "root",
+        "host" : "localhost",
+        "password" : "",
+        "db" : "BILDmining"
+    },
+    "spider" : {
+        "main-url" : "https://www.bild.de",
+        "nav-urls" : {
+            "news" : "/news",
+            "politik" : "/politik",
+            "geld": "/geld",
+            "unterhaltung" : "/unterhaltung",
+            "sport" : "/sport",
+            "sport-fussball" : "/sport/fussball", 
+            "lifestyle" : "/lifestyle",
+            "ratgeber" : "/ratgeber", 
+            "reise" :"/reise", 
+            "auto" : "/auto", 
+            "digital" : "/digital", 
+            "spiele" : "/spiele", 
+            "regional" : "/regional"
+        }
+    }
+}
