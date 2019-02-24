@@ -95,7 +95,7 @@ class DatabaseManager:
                                     article.premium, article.description, 
                                     article.articleType, article.modified_at, 
                                     self.stored_at, publisher_id))
-            last_id = cursor.execute("SELECT LAST_INSERT_ID() FROM `Articles`")
+            last_id = cursor.execute("SELECT LAST_INSERT_ID() FROM `articles`")
         self.connection.commit()
         return last_id
     
@@ -149,8 +149,8 @@ class DatabaseManager:
 
         type = authors['@type']
         authors = extractCleanedAuthors(authors['name'])
-        sql = "SELECT id from `Authors` where name = %s"
-        sqlAdd = "INSERT INTO `Authors` (`type`, `name`) VALUES (%s, %s)"
+        sql = "SELECT id from `authors` where name = %s"
+        sqlAdd = "INSERT INTO `authors` (`type`, `name`) VALUES (%s, %s)"
 
         author_ids = []
         for author in authors:

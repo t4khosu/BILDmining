@@ -2,6 +2,11 @@
 
 Dieses Projekt befasst sich mit der Extraktion und Auswertung von Artikeln, die auf [bild.de](https://www.bild.de) bereitgestellt werden.
 
+## Setup
+1. Installation der requirements.txt
+2. `pip install lxml` 
+3. Aufsetzen einer MySQL-DB, s. [parameters.json](src/parameters.json)
+
 ## Data Collection Module
 
 Das Skript [miner.py](src/miner.py) kümmert sich um die Extraktion aller aktueller Artikel und deren Speicherung in einer Datenbank. Es werden keine vollständigen HTML-Seiten gespeichert, sondern vorab die relevanten Informationen extrahiert und in normalisierte Tabellen gespeichert. Damit soll der Speicherplatz vorerst geschohnt werden.
